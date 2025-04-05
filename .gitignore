@@ -1,0 +1,18 @@
+# Compilación
+build/
+dist/
+*.egg-info/
+*.so
+*.o
+*.pyd
+*.dll
+*.pyc
+__pycache__/
+
+# Entorno virtual
+env/
+.venv/
+
+# Archivos de configuración temporales
+*.log
+.DS_Store
