@@ -1,9 +1,6 @@
 from ctypes import CDLL, POINTER, c_int, c_float, c_double, c_void_p, c_longlong
 import os
 import sysconfig
-from .arrays import IntArray, FloatArray, DoubleArray
-
-__all__ = ["IntArray", "FloatArray", "DoubleArray"]
 
 # Detectar automáticamente la carpeta build generada
 py_version = sysconfig.get_config_var('LDVERSION') or sysconfig.get_python_version()
@@ -137,3 +134,13 @@ def init_double_sequence(ptr, size): lib.mem_init_double_sequence(ptr, size)
 
 # FREE
 def free(ptr): lib.mem_free(ptr)
+
+from .arrays import IntArray, FloatArray, DoubleArray
+
+__all__ = [
+    "malloc_int", "set_int", "get_int", "sum_int", "init_int_sequence", "scale_int", "fill_int", "dot_product_int",
+    "malloc_float", "set_float", "get_float", "sum_float", "init_float_sequence", "scale_float", "fill_float", "dot_product_float",
+    "malloc_double", "set_double", "get_double", "sum_double", "init_double_sequence", "scale_double", "fill_double", "dot_product_double",
+    "free",
+    "IntArray", "FloatArray", "DoubleArray"
+]
