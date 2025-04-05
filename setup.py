@@ -7,7 +7,7 @@ memtool_ext = Extension(
 
 setup(
     name='memtool',
-    version='0.1.1',
+    version='0.1.1.1',
     description='Memory management and manual allocation library for Python using C',
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
