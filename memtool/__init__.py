@@ -7,8 +7,13 @@ py_version = sysconfig.get_config_var('LDVERSION') or sysconfig.get_python_versi
 lib_dir = f"build/lib.linux-x86_64-cpython-{py_version.replace('.', '')}"
 
 # Armar la ruta completa al .so generado
-lib_path = os.path.join(os.path.dirname(__file__), '..', lib_dir, 'memtool', f"core.cpython-{py_version.replace('.', '')}-x86_64-linux-gnu.so")
-lib_path = os.path.abspath(lib_path)
+lib_path = os.path.join(os.path.dirname(__file__), f"core.cpython-{py_version.replace('.', '')}-x86_64-linux-gnu.so")
+
+# Y en caso de que quieras permitir fallback en dev, podés hacerlo así:
+if not os.path.exists(lib_path):
+    dev_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'build', f'lib.linux-x86_64-cpython-{py_version.replace(".", "")}', 'memtool', f'core.cpython-{py_version.replace(".", "")}-x86_64-linux-gnu.so'))
+    if os.path.exists(dev_path):
+        lib_path = dev_path
 
 lib = CDLL(lib_path)
 
