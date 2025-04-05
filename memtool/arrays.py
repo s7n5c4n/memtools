@@ -1,6 +1,6 @@
 # memtool/arrays.py
 from .base import BaseArray
-from memtool import (
+from . import (
     malloc_int, set_int, get_int, sum_int, init_int_sequence, free as free_mem,
     malloc_float, set_float, get_float, sum_float, init_float_sequence,
     malloc_double, set_double, get_double, sum_double, init_double_sequence,
